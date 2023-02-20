@@ -1,9 +1,16 @@
 "use client"
 
+import { FormEventHandler, useState } from 'react'
+
 import styles from './headerStyles.module.scss'
 
+import states from '@/data/states.json'
+import Link from 'next/link'
 
 export function AppHeader() {
+
+    const [blockState, setBlockState] = useState<string>('')
+    const [name, setName] = useState<string>('')
 
     return (
         <div id={styles.container}>
@@ -32,14 +39,18 @@ export function AppHeader() {
                     de carnaval de 2023
                 </h1>
 
-                <form id={styles.searchContainer} onSubmit={(event) => { event.preventDefault() }}>
+                <form  
+                    id={styles.searchContainer} 
+                    onSubmit={(event) => event.preventDefault()}
+                >
 
                     <div className={styles.input}>
-                        <img 
-                            src="/search.png" 
-                            alt="Icone de busca" 
-                            />
+                        <img
+                            src="/search.png"
+                            alt="Icone de busca"
+                        />
                         <input
+                            onChange={(event) => setName(event.target.value)}
                             type="text"
                             placeholder="Pesquise por nome"
                         />
@@ -50,15 +61,29 @@ export function AppHeader() {
                             src="/location.png"
                             alt="Icone de localização"
                         />
-                        <select>
-                            <option>Selecione uma cidade</option>
-                            <option value="1">Brasilia-DF</option>
-                            <option value="2">São paulo-SP</option>
-                            <option value="3">Salvador-PE</option>
+                        <select
+                            onChange={(event) => setBlockState(event.target.value)}
+                        >
+                            <option value="">Selecione uma cidade</option>
+                            {
+                                states.map((state) => {
+                                    return (
+                                        <option
+                                            value={`${state.name}-${state.uf}`}
+                                            key={state.name}
+                                        >
+                                            {`${state.name}-${state.uf}`}
+                                        </option>
+                                    )
+                                })
+                            }
                         </select>
                     </div>
 
-                    <button id={styles.submitButton}>BUSCAR AGORA</button>
+                    <Link 
+                        href={`${`/blocos?estado=${blockState}&nome=${name}`}`} 
+                        id={styles.submitButton}
+                    >BUSCAR AGORA</Link>
                 </form>
             </div>
         </div>

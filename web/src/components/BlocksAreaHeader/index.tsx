@@ -16,6 +16,7 @@ export function BlocksAreaHeader({
         buttonName,
         buttonLink
 }: BlocksAreaHeaderParams) {
+
     return (
         <header id={styles.container}>
             <h1 id={styles.title}>{optionName}</h1>
@@ -24,16 +25,27 @@ export function BlocksAreaHeader({
                 id={styles.changeModeButton}
                 href={buttonLink}
             >{buttonName}</Link>
-
             {
                 enableToggleContainer && (
                     <div id={styles.toggleContainer} disabled-data={`${!enableToggleContainer}`}>
-                        <button data-state="on" className={styles.toggleMenuItem}>
+                        
+                        <Link 
+                            href="/blocos" 
+                            
+                            data-state={window.location.pathname == "/blocos"&&"on"} 
+                            className={styles.toggleMenuItem}
+                        >
                             LISTA
-                        </button>
-                        <button className={styles.toggleMenuItem}>
+                        </Link>
+
+                        <Link 
+                            href="/blocos/mapa" 
+                            data-state={window.location.pathname == "/blocos/mapa"&&"on"} 
+                            className={styles.toggleMenuItem}
+                        >
                             MAPA
-                        </button>
+                        </Link>
+
                     </div>
                 )
             }

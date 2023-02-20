@@ -63,6 +63,21 @@
             }
         }
 
+        #descriptionTextArea {
+            width: 100%;
+            min-height: 4.8rem;
+            background-color: var(--secondary-background-color);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            padding: 1.4rem;
+            color: var(--text-color);
+            border: 1px solid #EAEAEA;
+            resize: none;
+            overflow: hidden;
+
+        }
+
         #blockImageContainer {
             width: 100%;
             display: flex;
@@ -73,6 +88,7 @@
             border-radius: 5px;
             height: 29.2rem;
             border: 1px solid #EAEAEA;
+            cursor: pointer;
             
             p {
                 font-weight: 700;
@@ -85,6 +101,28 @@
             img {
                 height: 18.3rem;
                 width: 18.3rem;
+            }
+
+            input {
+                display: none;
+            }
+
+            #imagePreview {
+                width: 90%;
+                height: 80%;
+                resize: none;
+                object-fit: scale-down;
+            }
+
+            #removeImageButton {
+                background: none;
+                border: 0;
+                color: var(--red);
+                margin-top: 1rem;
+                transition: 300ms;
+            }
+            #removeImageButton:hover {
+                transform: scale(1.1);
             }
         }
 

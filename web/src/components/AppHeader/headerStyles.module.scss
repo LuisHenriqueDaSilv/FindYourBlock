@@ -98,12 +98,17 @@
             }
 
             #submitButton {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
 
                 border: 0;
                 color: var(--white);
 
                 width: 70%;
                 height: 4.8rem;
+
 
                                 
                 background: var(--purple);

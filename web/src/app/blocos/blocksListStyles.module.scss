@@ -21,7 +21,9 @@
             .blockBanner {
                 width: 100%;
                 height: auto;
+                max-height: 14.3rem;
                 border-radius: 1rem 1rem 0 0;
+                object-fit: contain;
 
             }
 
@@ -63,8 +65,49 @@
             transform: scale(1.05);
             box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.25);
         }
+
+        #noBlocksContainer {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            flex-direction: column;
+            right: 0;
+            left: 0;
+            color: var(--title-color);
+            gap: 1rem;
+
+            animation: pulse infinite 5s;
+
+            img {
+                height: 25rem;
+                width: 25rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                margin-bottom: 10rem;
+
+                span {
+                    font-weight: 700;
+                    color: var(--purple);
+                }
+            }
+        }
     }
 
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    
 }
 
 @media (min-width: 640px) {
