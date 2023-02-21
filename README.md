@@ -19,7 +19,7 @@ Divulgue seus blocos e veja a localização de outros!
 </br>
 
 
-<strong>Como rodar?</strong>
+<h2>Como rodar?</h2>
 <div align="left">
 
 </br>
