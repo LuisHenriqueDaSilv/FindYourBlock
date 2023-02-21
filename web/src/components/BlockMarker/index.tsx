@@ -1,6 +1,6 @@
 "use client"
 
-import { Marker, Popup } from 'react-leaflet'
+import { Marker, Popup, } from 'react-leaflet'
 import Leaflet from 'leaflet'
 import Link from 'next/link'
 
@@ -11,20 +11,23 @@ const mapIcon = Leaflet.icon({
     iconSize: [50, 50],
 })
 
+
 interface BlockMarkerParams {
     name?: string,
     position: {
         lat: number,
         lng: number
     },
-    id?: string
+    id?: string,
+    image?: string
 }
 
 
 export default function BlockMarker({
     name,
     position,
-    id
+    id,
+    image
 }: BlockMarkerParams) {
     return (
         <Marker
@@ -35,6 +38,9 @@ export default function BlockMarker({
                 name && (
                     <Popup minWidth={240} maxWidth={240}>
                         <p>{name}</p>
+                        <img
+                            src={image}
+                        />
                         <Link href={`/blocos/${id}`}>
                             <label>ver</label>
                         </Link>

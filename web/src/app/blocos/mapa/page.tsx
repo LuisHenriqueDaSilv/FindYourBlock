@@ -45,6 +45,7 @@ export default async function BlockMaps (
                             key={block.id}
                             id={block.id}
                             name={block.name}
+                            image={`/uploads/${block.imageName}`}
                             position={{ lat: Number(block.positionLat), lng: Number(block.positionLng) }}
                         />
                     )
