@@ -6,7 +6,6 @@ import {usePathname} from 'next/navigation'
 import styles from './headerStyles.module.scss'
 
 import states from '@/data/states.json'
-import Link from 'next/link'
 
 export function AppHeader() {
 
@@ -54,7 +53,7 @@ export function AppHeader() {
                 <h1 id={styles.title}>
                     Encontre os <span>melhores blocos </span>
                     de carnaval de 2023
-                </h1>
+                </h1>usePathname
 
                 <form  
                     id={styles.searchContainer} 
