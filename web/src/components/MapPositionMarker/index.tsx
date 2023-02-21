@@ -1,9 +1,8 @@
-import { useState } from 'react'
 import { Marker, useMapEvents } from 'react-leaflet'
 import Leaflet from 'leaflet';
 
 
-export interface PositionInterface {
+interface PositionInterface {
     lat: number,
     lng: number
 }
@@ -17,7 +16,7 @@ const mapIcon = Leaflet.icon({
     iconSize: [50, 50],
 })
 
-export function MapPositionMarker({ onChange, position }: MapPositionMarkerProps) {
+export default function MapPositionMarker({ onChange, position }: MapPositionMarkerProps) {
 
     useMapEvents({
         click(event: any) {

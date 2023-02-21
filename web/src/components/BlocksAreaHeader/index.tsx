@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import styles from './BlocksAreaHeader.module.scss'
+import {usePathname} from 'next/navigation'
 
 interface BlocksAreaHeaderParams {
     optionName: string,
@@ -16,6 +17,8 @@ export function BlocksAreaHeader({
         buttonName,
         buttonLink
 }: BlocksAreaHeaderParams) {
+
+    const pathname = usePathname()
 
     return (
         <header id={styles.container}>
@@ -32,7 +35,7 @@ export function BlocksAreaHeader({
                         <Link 
                             href="/blocos" 
                             
-                            data-state={window.location.pathname == "/blocos"&&"on"} 
+                            data-state={pathname == "/blocos"&&"on"} 
                             className={styles.toggleMenuItem}
                         >
                             LISTA
@@ -40,7 +43,7 @@ export function BlocksAreaHeader({
 
                         <Link 
                             href="/blocos/mapa" 
-                            data-state={window.location.pathname == "/blocos/mapa"&&"on"} 
+                            data-state={pathname == "/blocos/mapa"&&"on"} 
                             className={styles.toggleMenuItem}
                         >
                             MAPA

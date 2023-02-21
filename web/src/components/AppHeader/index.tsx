@@ -1,6 +1,7 @@
 "use client"
 
-import { FormEventHandler, useState } from 'react'
+import { useState } from 'react'
+import {usePathname} from 'next/navigation'
 
 import styles from './headerStyles.module.scss'
 
@@ -9,8 +10,24 @@ import Link from 'next/link'
 
 export function AppHeader() {
 
+    const pathName = usePathname()
+
     const [blockState, setBlockState] = useState<string>('')
     const [name, setName] = useState<string>('')
+    const [position, setPosition] = useState({lat: -15.7993786, lng: -47.8654648})
+
+    function handleSelectState(event: React.ChangeEvent<HTMLSelectElement>){
+
+        if(!event.target.value){
+            setBlockState('')
+            setPosition({lat: -15.7993786, lng: -47.8654648})
+            return 
+        }
+        const [lat, lng, state, uf] = event.target.value.split('/')
+
+        setBlockState(`${state}-${uf}`)
+        setPosition({lat:Number(lat), lng:Number(lng)})
+    }
 
     return (
         <div id={styles.container}>
@@ -62,14 +79,14 @@ export function AppHeader() {
                             alt="Icone de localização"
                         />
                         <select
-                            onChange={(event) => setBlockState(event.target.value)}
+                            onChange={handleSelectState}
                         >
                             <option value="">Selecione uma cidade</option>
                             {
                                 states.map((state) => {
                                     return (
                                         <option
-                                            value={`${state.name}-${state.uf}`}
+                                            value={`${state.latitude}/${state.longitude}/${state.name}/${state.uf}`}
                                             key={state.name}
                                         >
                                             {`${state.name}-${state.uf}`}
@@ -80,10 +97,10 @@ export function AppHeader() {
                         </select>
                     </div>
 
-                    <Link 
-                        href={`${`/blocos?estado=${blockState}&nome=${name}`}`} 
+                    <a 
+                        href={`${`${pathName}?estado=${blockState}&nome=${name}&lat=${position.lat}&lng=${position.lng}`}`} 
                         id={styles.submitButton}
-                    >BUSCAR AGORA</Link>
+                    >BUSCAR AGORA</a>
                 </form>
             </div>
         </div>

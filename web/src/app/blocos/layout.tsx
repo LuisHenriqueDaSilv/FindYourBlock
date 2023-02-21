@@ -1,7 +1,4 @@
-"use client"
-
 import { BlocksAreaHeader } from '@/components/BlocksAreaHeader'
-import { useEffect } from 'react'
 
 import styles from './blocksListStyles.module.scss'
 

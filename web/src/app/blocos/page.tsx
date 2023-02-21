@@ -1,16 +1,13 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import prismaClient from '@/lib/prisma'
 
 import styles from './blocksListStyles.module.scss'
 
-interface BlocksListParams {
-    searchParams: {
-        estado: string,
-        nome: string
-    }
-}
-export default async function BlocksList({ searchParams }: BlocksListParams) {
+export const dynamic='force-dynamic';
+
+export default async function BlocksList({ searchParams }: any) {
 
     const blocks = await prismaClient.carnivalBlock.findMany({
         orderBy: {
@@ -41,20 +38,22 @@ export default async function BlocksList({ searchParams }: BlocksListParams) {
 
                         blocks.map((block) => {
                             return (
-                                <div key={block.id} className={styles.blockCard}>
-                                    <Image
+                                <Link 
+                                    key={block.id} 
+                                    className={styles.blockCard}
+                                    href={`/blocos/${block.id}`}
+                                >
+                                    <img
                                         src={`/uploads/${block.imageName}`}
                                         alt="O python do vovo não sobe mais"
                                         className={styles.blockBanner}
-                                        width={1000}
-                                        height={600}
                                     />
                                     <div className={styles.blockContent}>
 
                                         <h1>
                                             {block.name}
                                         </h1>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis culpa libero magnam ex enim dolores a. Reprehenderit ea ullam eum.</p>
+                                        <p>{block.description}</p>
                                         <div className={styles.blockLocation}>
                                             <Image
                                                 src="/location.png"
@@ -65,7 +64,7 @@ export default async function BlocksList({ searchParams }: BlocksListParams) {
                                             <p>{block.state}</p>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                             )
                         })
                     ): (
