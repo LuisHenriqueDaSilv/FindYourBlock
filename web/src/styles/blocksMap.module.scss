@@ -1,0 +1,19 @@
+#container {
+
+    margin: 11.2rem 0;
+    padding: 0 5rem;
+    max-width: 130rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    #mapContainer {
+        width: 100%;
+        border: 1px solid #EAEAEA;
+        height: 42.4rem;
+        border-radius: 5px;
+        background-color: var(--secondary-background-color);
+
+
+    }
+}
