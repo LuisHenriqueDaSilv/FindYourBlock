@@ -32,13 +32,13 @@ export default function BlockMarker({
     onChange
 }: BlockMarkerParams) {
 
-    if(onChange){
-        useMapEvents({
-            click(event: any) {
+    useMapEvents({
+        click(event: any) {
+            if(onChange){
                 onChange(event.latlng)
             }
-        })
-    }
+        }
+    })
     return (
         <Marker
             icon={mapIcon}
