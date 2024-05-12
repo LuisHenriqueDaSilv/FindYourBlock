@@ -23,7 +23,6 @@ A UI utilizada como base para este projeto foi retirada do desafio <a href="http
   - NextJS
   - ORM Prisma
   - Sqlite
-  - Sass
 
 ## ▶️ | Como rodar
 **Para rodar o projeto em sua máquina local é necessário as seguintes ferramentas:**
