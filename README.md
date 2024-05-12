@@ -16,7 +16,6 @@
 ## 📚 | Informações do projeto
 <p>Este projeto foi desenvolvido com o intuito de estudar e testar as funcionalidades de Server/User Side Rendering implementadas no NextJS 13,  além de estudar como implementar um banco de dados utilizando o PrismaORM no mesmo.<br/> 
 A UI utilizada como base para este projeto foi retirada do desafio <a href="https://boracodar.dev"> BoraCodar 7</a>, da Rocketseat. </p>
-</br>
 
 ## ⚙️ | Tecnologias, linguagens e ferramentas utilizadas:
   - Typescript
@@ -25,8 +24,6 @@ A UI utilizada como base para este projeto foi retirada do desafio <a href="http
   - ORM Prisma
   - Sqlite
   - Sass
-</br>
-
 
 ## ▶️ | Como rodar
 **Para rodar o projeto em sua máquina local é necessário as seguintes ferramentas:**
@@ -50,5 +47,4 @@ npx prisma db seed # Popula o banco de dados com alguns blocos de carnaval (OPCI
 npm run build #Gera a build otimizada para produção
 npm start #Inicia a aplicação.
 ```
-</br>
 <p>✅-Caso nenhum imprevisto ocorra durante a execução do projeto, devemos ter a aplicação acessível no endereço local "<a href="http://localhost:3000/">http://localhost:3000/</a>".</p>
